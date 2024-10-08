@@ -4,6 +4,9 @@ declare -a tools=(
   "curl"
   "tldr"
   "locate"
+  "shellcheck"
+  "lolcat"
+  "neofetch"
 )
 
 for tool in ${tools[@]}; do 
