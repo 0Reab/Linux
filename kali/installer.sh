@@ -51,6 +51,9 @@ addline "alias mp='mousepad'"
 addline "alias roast='shellcheck'" # should install shell check before this runs
 addline "#neofetch | lolcat -F 0.03 -S 180 # Green" # install lolcat and neofetch
 addline "neofetch | lolcat -F 0.03 -S 60 # Purple"
-addline "export PHP='${DIR}/scripts/rev.php'"
+addline "PHP='${DIR}/scripts/rev.php'"
+addline "PTY="python 'import pty; pty.spawn('/bin/bash')'""
+addline "alias shell='echo $PTY; nc -nvlp 4444'"
+
 
 source .zshrc &>/dev/null # use new config, errors are expected hence /dev/null redirect test it in new terminal window
