@@ -52,7 +52,7 @@ addline "alias roast='shellcheck'" # should install shell check before this runs
 addline "#neofetch | lolcat -F 0.03 -S 180 # Green" # install lolcat and neofetch
 addline "neofetch | lolcat -F 0.03 -S 60 # Purple"
 addline "PHP='${DIR}/scripts/rev.php'"
-addline "PTY="python 'import pty; pty.spawn('/bin/bash')'""
+addline "PTY="python -c 'import pty; pty.spawn('/bin/bash')'""
 addline "alias shell='echo $PTY; nc -nvlp 4444'"
 
 
