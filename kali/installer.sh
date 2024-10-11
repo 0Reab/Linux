@@ -10,6 +10,7 @@ declare -a tools=(
   "shellcheck"
   "lolcat"
   "neofetch"
+  "xclip"
 )
 
 for tool in ${tools[@]}; do 
