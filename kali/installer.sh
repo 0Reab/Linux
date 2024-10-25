@@ -56,6 +56,7 @@ addline "alias shell='printf $PTY; printf '\n'; nc -nvlp 4444'" # run netcat lis
 addline "alias copy='xclip -sel c <'" # copy contents of file to clipboard: <usage> copy file_name.txt
 addline "alias mp='mousepad'" # open mousepad txt editor: <usage> mp
 addline "alias roast='shellcheck'" # open shellcheck for bash script debugging <usgae> roast my_script.sh
+addline "ROCKYOU='/usr/share/wordlists/rockyou.txt'" # global var for rockyou wordlist
 
 source .zshrc &>/dev/null # use new config, errors are expected hence /dev/null redirect test it in new terminal window
 # maby this last line is not needed if you write to .zshrc idk.
