@@ -34,7 +34,7 @@ chmod +x /usr/local/bin/del
 
 mkdir -p "${DIR}/scripts"
 cp "${toolbag}rev.php" "${DIR}/scripts/rev.php"
-
+echo "python -c 'import pty; pty.spawn(\"/bin/bash\")'\n" >> ${DIR}/.pty
 
 # setup .zshrc config file for terminal startup
 
@@ -48,15 +48,18 @@ function addline() {
 cp "${DIR}/.bashrc" "${DIR}/.zshrc_backup"
 
 addline "# CUSTOM setup script lines"
-addline "#neofetch | lolcat -F 0.03 -S 180 # Green" # cool terminal color variation
-addline "neofetch | lolcat -F 0.03 -S 60 # Purple" # cool terminal etc...
-addline "PHP='${DIR}/scripts/rev.php'" # path for classic php reverse shell
-addline "PTY="python -c 'import pty; pty.spawn(\"/bin/bash\")'\npython3 -c 'import pty; pty.spawn(\"/bin/bash\")'"" # shell upgrade commands
-addline "alias shell='printf $PTY; printf '\n'; nc -nvlp 4444'" # run netcat listener port 4444 display shell upgrade commands for python
-addline "alias copy='xclip -sel c <'" # copy contents of file to clipboard: <usage> copy file_name.txt
-addline "alias mp='mousepad'" # open mousepad txt editor: <usage> mp
-addline "alias roast='shellcheck'" # open shellcheck for bash script debugging <usgae> roast my_script.sh
-addline "ROCKYOU='/usr/share/wordlists/rockyou.txt'" # global var for rockyou wordlist
+
+addline "alias copy='xclip -sel c <'" # Copy contents of file to clipboard
+addline "# neofetch | lolcat -F 0.03 -S 180 # Green" # Cool terminal color variation
+addline "neofetch | lolcat -F 0.03 -S 60 # Purple" # Another color variation
+addline "PHP=${DIR}/scripts/rev.php" # Path for PHP reverse shell
+addline "PTY=\"python -c 'import pty; pty.spawn('/bin/bash')'\"" # Shell upgrade commands
+addline "PTY3=\"python3 -c 'import pty; pty.spawn('/bin/bash')'\"" # Shell upgrade commands
+addline "alias shell='printf \$PTY; printf \$PTY3; copy \$HOME/.pty; nc -nvlp 4444'" # Netcat listener alias
+addline "alias mp='mousepad'" # Open mousepad text editor
+addline "alias roast='shellcheck'" # Open shellcheck for debugging
+addline "ROCKYOU='/usr/share/wordlists/rockyou.txt'" # Global variable for rockyou wordlist
+addline "DIRBUST='/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt'" # Global variable for dir-medium-2.3 wordlist
 
 source .zshrc &>/dev/null # use new config, errors are expected hence /dev/null redirect test it in new terminal window
 # maby this last line is not needed if you write to .zshrc idk.
